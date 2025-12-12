@@ -161,6 +161,12 @@ function playHitSound() {
 function jumpHandler(evt) {
   if (evt && evt.type === 'touchstart') evt.preventDefault();
 
+  // NEW: stop hit sound when tapping after collision
+  try {
+    ASSETS.hitSound.pause();
+    ASSETS.hitSound.currentTime = 0;
+  } catch (e) {}
+
   if (gameOver) {
     resetGame();
     return;
@@ -173,7 +179,6 @@ function jumpHandler(evt) {
 
   playFart();
 }
-
 // Collision detection
 function collision(a, b) {
   return (
@@ -271,3 +276,4 @@ window.addEventListener('mousedown', jumpHandler);
 window.addEventListener('touchstart', jumpHandler, { passive: false });
 
 log("Required: flappybirdbg.png, toppipe.png, bottompipe.png, bird.png, fart.mp3, hit.mp3");
+

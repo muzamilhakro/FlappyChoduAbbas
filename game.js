@@ -55,8 +55,8 @@ const JUMP_V = -7.0;
 const VELOCITY_X = -2.0;
 
 let pipes = [];
-let pipeWidth = 50;
-let pipeHeight = 380;
+let pipeWidth = 45;
+let pipeHeight = 370;
 let placePipeInterval = null;
 
 let score = 0;
@@ -276,5 +276,6 @@ window.addEventListener('mousedown', jumpHandler);
 window.addEventListener('touchstart', jumpHandler, { passive: false });
 
 log("Required: flappybirdbg.png, toppipe.png, bottompipe.png, bird.png, fart.mp3, hit.mp3");
+
 
 
